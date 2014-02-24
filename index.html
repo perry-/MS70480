@@ -116,9 +116,17 @@
 					<h1>FAQ</h1>
 
 					<aside class="notes">
-						Over til ofte stilte spørsmål
-						</br>
-						Dekker bare noe av sertifiseringspensum
+						<p>Over til ofte stilte spørsmål</p>
+					</aside>
+				</section>
+
+				<section>
+					<div class="fullsize">
+						<img src="disclaimer.png">
+					</div>
+
+					<aside class="notes">
+						<p>Dekker bare noe av sertifiseringspensum</p>
 					</aside>
 				</section>
 
@@ -229,7 +237,7 @@
 &lt;html&gt;
   &lt;head&gt;&lt;/head&gt;
   &lt;body&gt;
-    &lt;heading&gt;&lt;/heading&gt;
+    &lt;header&gt;&lt;/header&gt;
     &lt;nav&gt;&lt;/nav&gt;
     &lt;section&gt;&lt;/section&gt;
     &lt;aside&gt;&lt;/aside&gt;
@@ -240,13 +248,15 @@
 					<img src="divs.png">
 
 					<aside class="notes">
-						Hensikten med nye tags er å øke den semantiske verdien
-						</br>
-						Markupen med divs er fortsatt gyldig
-						</br>
-						Audio og video er også nye tags, som gjør det enklere å inkludere multimedia på nettsidene
-						</br>
-						Alle divs er borte i dette eksempelet, men det betyr ikke at man skal slutte å bruke divs helt
+						<p>Hensikten med nye tags er å øke den semantiske verdien</p>
+						<p>Markupen med divs er fortsatt gyldig</p>
+						<p><bold>header</bold> introduserer innhold, kan brukes flere ganger</p>
+						<p><bold>nav</bold> overordnet navigasjon, f.eks. navigasjon som dekker hele nettsiden</p>
+						<p><bold>section</bold> grupperer tematisk relatert innhold</p>
+						<p><bold>aside</bold> innhold som er relatert til hovedinnholdet</p>
+						<p><bold>footer</bold> inneholder info om foreldre-elementet, hvem skrev det, copyright, linker til relatert innhold etc.</p>
+						<p>Audio og video er også nye tags, som gjør det enklere å inkludere multimedia på nettsidene</p>
+						<p>Alle divs er borte i dette eksempelet, men det betyr ikke at man skal slutte å bruke divs helt</p>
 					</aside>
 				</section>
 
@@ -262,23 +272,103 @@
 				</section>
 
 				<section>
-					<h2>Media queries</h2>
+					<h1>Media queries</h1>
+					
 					<aside class="notes">
+						<p>Deler CSS opp i scopes etter egenskaper som bredde, høyde og farge</p>
+						<p>Støtt flere enheter uten å endre innholdet</p>
+						<p>Når en media query er sann, vil CSSen i media querien aktiveres</p>
 
+						<p>https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries</p>
+						
+					</aside>
+				</section>
+
+				<section>
+					<h2>Media queries</h2>
+					<pre><code data-trim contenteditable>
+@media (min-width: 700px) { ... }
+@media (max-width: 800px) and (orientation: landscape) { ... }
+@media print, orientation { ... }
+
+					</code></pre>
+					<a href="http://mediaqueri.es/">mediaqueri.es</a>
+
+					<aside class="notes">
+						<p>Bruker min- og max- for å ikke komme i konflikt med HTML/XML</p>
+						<p>"and" krever at begge uttrykkene er sanne</p>
+						<p>Komma tilsvarer "or"</p>
 					</aside>
 				</section>
 
 				<section>
 					<h2>Flexbox</h2>
+					<p>Bestemmer layout</p>
+					<p>Fleksibelt!</p>
 					<aside class="notes">
-
+						<p>Lettere design</p>
+						<p>Fleksibelt ihht. skjermplass</p>
+						<p>Renere/enklere CSS</p>
+						<p>Fungerer godt både horisontalt og vertikalt</p>
 					</aside>
 				</section>
 
 				<section>
-					<h2>Skyggelegging</h2>
-					<aside class="notes">
+					<h2>Flexbox</h2>
+					<pre><code data-trim contenteditable>
+display: flex
 
+flex-direction: row | row-reverse | column | column-reverse
+
+justify-content: flex-start | flex-end | center 
+| space-between | space-around
+
+align-items: flex-start | flex-end | center | baseline | stretch
+					</pre></code>
+					<aside class="notes">
+						<p>Her er det man trenger for å starte</p>
+						<p><em>display: flex</em> definerer containeren</p>
+						<p>Elementene innen en slik container er definert som flex items</p>
+						<p><em>flex-direction</em> def. hovedaksen som elementene skal ligge etter</p>
+						<p><em>justify-content</em> def. fordelingen av innholdet</p>
+						<p>Kryssakse = akse som står 90 grader på hovedaksen</p>
+						<p><em>align-items</em> justerer elementer langs kryssaksen</p>
+					</aside>
+				</section>
+
+				<section>
+					<a href="http://the-echoplex.net/flexyboxes/"><h1>Flexbox playground</h1></a>
+
+					<aside class="notes">
+						<p>Kul side som enkelt viser flexbox</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>*-shadow</h2>
+					<div class="fullsize">
+						<img src="shadow.jpg">
+					</div>
+
+					<aside class="notes">
+						<p>box-shadow</p>
+						<p>text-shadow</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>box-shadow</h2>
+
+					<aside class="notes">
+						
+					</aside>	
+				</section>
+
+				<section>
+					<h2>text-shadow</h2>
+
+					<aside class="notes">
+						
 					</aside>
 				</section>
 
