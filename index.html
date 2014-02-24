@@ -358,24 +358,42 @@ align-items: flex-start | flex-end | center | baseline | stretch
 
 				<section>
 					<h2>box-shadow</h2>
+					<pre><code data-trim contenteditable>
+						box-shadow: 1px 2px 5px 2px rgba(50, 50, 50, 0.75)
+					</pre></code>
+					<a href="http://css3gen.com/box-shadow/">box-shadow generator</a>
 
 					<aside class="notes">
-						
+						<p>Skyggelegging av elementer</p>
+						<p>To første verdiene er offsets i hhv horisontal og vertikal retning</p>
+						<p>Nr. 3 er blur-størrelse</p>
+						<p>Nr. 4 er spread-radius, størrelsen på skyggen</p>
+						<p>Siste verdien angir fargen, red green blue alpha</p>
 					</aside>	
 				</section>
 
 				<section>
 					<h2>text-shadow</h2>
+					<pre><code data-trim contenteditable>
+						text-shadow: 1px 2px 5px rgba(50, 50, 50, 0.75)
+					</pre></code>
+					<a href="http://css3gen.com/box-shadow/">box-shadow generator</a>
 
 					<aside class="notes">
-						
-					</aside>
+						<p>Skyggelegging av tekst, nesten samme syntaks</p>
+						<p>To første verdiene er offsets i hhv horisontal og vertikal retning</p>
+						<p>Nr. 3 er blur-størrelse</p>
+						<p>Siste verdien angir fargen, red green blue alpha</p>
+					</aside>	
 				</section>
+
 
 				<section>
 					<h1>...mye mer</h1>
-					<aside class="notes">
 
+					<aside class="notes">
+						<p>Flere bakgrunner</p>
+						<p>Transitions: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions</p>
 					</aside>
 				</section>
 
@@ -384,9 +402,181 @@ align-items: flex-start | flex-end | center | baseline | stretch
 						<img src="js.svg" />
 					</div>
 					<aside class="notes">
-						Notater blabla
+						<p>Blanding av nytt og gammelt</p>
 					</aside>
 				</section>
+
+				<section>
+					<h1>Konsumering av data</h1>
+
+					<aside class="notes">
+						<p>Mer spesifikt konsumering av XML og JSON</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>XMLHttpRequest</h2>
+					<pre><code data-trim contenteditable>
+if (window.XMLHttpRequest)
+  { // code for IE7+, Firefox, Chrome, Opera, Safari
+  	xmlhttp = new XMLHttpRequest();
+  }
+else
+  { // code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","books.xml",false);
+xmlhttp.send();
+xmlDoc = xmlhttp.responseXML;
+					</pre></code>
+
+					<aside class="notes">
+						<p>Designet av Microsoft</p>
+						<p>Standardisert i W3C</p>
+						<p>Kjernen i AJAX</p>
+						<p>Kan hente mer enn XML! (JSON, HTML, tekst)</p>
+						<p>Koden over sender en GET-request for XML-fil, og lagrer XMLen i et objekt</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>XMLHttpRequest</h2>
+					<pre><code data-trim contenteditable>
+xmlhttp.onreadystatechange = function()
+{
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      xmlDox = xmlhttp.responseXML;
+    }
+}
+					</pre></code>
+
+					<aside class="notes">
+						<p>Sjekker for feil med onreadystatechange</p>
+						<p>Fyrer av når readystate status endres</p>
+						<p>Status 200 = "OK"</p>
+						<p>4: request finished and response is ready</p>
+						http://www.w3schools.com/ajax/ajax_xmlhttprequest_onreadystatechange.asp
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>JSON</h2>
+					<pre><code data-trim contenteditable>
+var json = '{"result":true,"count":1}',
+obj = JSON.parse(json);
+					</pre></code>
+
+					
+					<aside class="notes">
+						<p>Pensum dekker litt JSON-parsing</p>
+						<p>Lettleselig</p>
+						<p>Name : value (string : verdi)</p>
+						<p>Øverst er et eksempel på JSON</p>
+						<p>Nederst er eksempel på parsing</p>
+						<p>Støttes av IE8 og oppover</p>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Web workers</h1>
+
+					<aside class="notes">
+						<p>JavaScript-kode som kjører i bakgrunnen</p>
+						<p>Utnytter flerkjerne-CPU mer effektivt</p>
+						<p>Ypperlig for oppgaver som krever CPU-kraft over en periode</p>
+						<p>Forstyrrer ikke GUI</p>
+						<p>Har ikke tilgang til DOM, komm. via meldinger</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Web workers</h2>
+					<pre><code data-trim contenteditable>
+var worker = new Worker("worker_script.js");
+worker.postMessage("Hello World!");
+worker.onmessage = function(event) {
+	alert("Received message " + event.data);
+	doSomething();
+}
+worker.terminate();
+					</pre></code>
+					<aside class="notes">
+						<p>Første linje initierer en worker som deretter kjører JS-koden</p>
+						<p>Linje 2 sender en melding til worker, postmsg brukes fra/til worker</p>
+						<p>Tilbakemeldingen fra web worker handles i en event handler</p>
+						<p>Samme event handling i worker-scriptet</p>
+						<p>terminate setter variabel-referansen til undefined</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Event bubbling</h2>
+					<div class="fullsize">
+						<img src="Bubbles.png">
+					</div>
+
+					<aside class="notes">
+						<p>Det finnes hovedsaklig to metoder å handle events på..</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Event bubbling</h2>
+					<div class="fullsize">
+						<img src="bubbling1.png">
+					</div>
+
+					<aside class="notes">
+						<p>To nøstede elementer som handler samme event</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Event bubbling</h2>
+					<div class="fullsize">
+						<img src="bubbling2.png">
+					</div>
+
+					<aside class="notes">
+						<p>Den ene metoden er å fange events på vei ned til det dypeste elementet</p>
+						<p>Kalt event capturing</p>
+						<p>Standard i Netscape</p>
+						<p>Events blir sendt nedover i hierarkiet</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Event bubbling</h2>
+					<div class="fullsize">
+						<img src="bubbling3.png">
+					</div>
+
+					<aside class="notes">
+						<p>Den andre metoden er å fange events på vei opp til det øverste elementet</p>
+						<p>Kalt event bubbling</p>
+						<p>Foretrukket av MS</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Event bubbling</h2>
+					<div class="fullsize">
+						<img src="bubbling4.png">
+					</div>
+
+					<aside class="notes">
+						<p>Begge er lovlige i W3C</p>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Lykke til!</h1>
+				</section>
+
+				
+						
 
 				<!--
 				<section>
