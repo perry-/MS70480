@@ -98,6 +98,21 @@ section .fullsize > img {
 	max-height: 60%;
 }
 
+#books {
+	display: block;
+}
+
+#books img {
+	display: inline-block;
+	text-align: center;
+	width: 20%;
+	padding: 1em;
+	border: none;
+	box-shadow: none;
+	background: none;
+}
+
+
 
 /*********************************************
  * HEADERS
